@@ -1,45 +1,40 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Review</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <div class="container">
+      <header>
+        <h1>Snowman Letter Game</h1>
+      </header>
 
-        <header>
-            <h1>Snowman Letter Game</h1>
-        </header>
-        
-        <section class="instructions">
-            <h3>Instructions:</h3>
-            <p>The snowman has a letter, can you guess what it is under 10 tries?</p>
-            <b>Start by pressing any letter key!</b>
-            <button id="resetButton" class="btn btn--start">Reset</b>
+      <section class="display display-instructions">
+        <h1 id="snowman">☃️</h1>
+        <div>
+          <h4>Instructions:</h4>
+          <p>
+            The snowman has a letter, can you guess what it is under 10 tries?
+          </p>
+        </div>
+        <b>Start by pressing any letter key!</b>
+      </section>
 
+      <section id="game" class="display">
+        <section class="display-game">
+          <p>Your guess: <span id="player-guess"></span></p>
+          <p>Already Guessed: <span id="guessed"></span></p>
+          <p>Guesses remaining:<span id="remaining"></span></p>
         </section>
-
-        <hr />
-
-        <section class="display">
-            <section class="display-game">
-                <p>Your guess: <span id="player-guess"></span></p>
-                <p>Already Guessed: <span id="guessed"></span> 
-                <p>Guesses remaining:<span id="remaining"></span></p>
-                <p>Wins: <span id="win-counter"></span></p>
-                <p>Losses: <span id="loss-counter"></span></p>
-            </section>
-            <section class="display display-snowman">
-                <h1 id="snowman">☃️</h1>
-                <h1 id="snowman-letter">?</h1>
-                <p>Guess what letter I'm thinking of!</p>
-            </section>
+        <section>
+          <p id="game-status"></p>
         </section>
-                
+      </section>
     </div>
-    
+
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
