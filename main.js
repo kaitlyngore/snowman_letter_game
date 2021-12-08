@@ -27,60 +27,48 @@ const lettersList = [
     "z"
 ];
 
-let wins = 0;
-let losses = 0;
-let guesses = 9;
+let guesses = 10;
 let guessesList = [];
 let snowmanLetter = lettersList[Math.floor(Math.random() * lettersList.length)];
 
-// const state = {
-    //     wins: 0,
-    //     losses: 0,
-    //     guesses: 9,
-    //     alreadyGuessed: [],
-    //     computerLetter: computerChoices[Math.floor(Math.random() * computerChoices.length)]
-    
-    // }
-    
+const resetGame = () => {
+    guesses = 10;
+    guessesList = [];
+    snowmanLetter = lettersList[Math.floor(Math.random() * lettersList.length)];
+}
+
+const endGame = (status) => {
+    document.querySelector("#game-status").innerHTML = `${status} The letter is <h2>${snowmanLetter.toUpperCase()}</h2>`;
+    document.removeEventListener("keydown", playGame);
+}
+
+document.getElementById("remaining").innerHTML = " " + guesses;
+
 const playGame = (event) => {
     let playerLetter = event.key;
-
+    
     if (lettersList.includes(playerLetter)) {
-        if (playerLetter === snowmanLetter && guesses < 9) {
-        //   wins++;
-          guesses = 9;
-          guessesList = [];
-          document.querySelector("#snowman-letter").textContent = snowmanLetter;
-          alert("You got it!");
-          snowmanLetter = lettersList[Math.floor(Math.random() * lettersList.length)];
-          document.removeEventListener("keydown", playGame);
+        if (playerLetter === snowmanLetter) {
+            endGame("You won!")
+            
         } else if (playerLetter != snowmanLetter) {
+            --guesses;
             guessesList.push(playerLetter)
-          guesses--;
-        }
-        if (guesses === 0) {
-        //   losses++;
-          guesses = 9;
-          guessesList = [];
-          snowmanLetter = lettersList[Math.floor(Math.random() * lettersList.length)];
-          document.removeEventListener("keydown", playGame);
-
+            console.log(guesses);
         }
     } else {
         alert("You must choose a letter!");
     }
     
+    if (guesses < 1) {
+        endGame("You lose!")
+    }
+
     document.getElementById("player-guess").innerHTML = "" + playerLetter;
-    document.getElementById("win-counter").innerHTML = " " + wins;
-    document.getElementById("loss-counter").innerHTML = " " + losses;
-    document.getElementById("remaining").innerHTML = " " + guesses;
     document.getElementById("guessed").innerHTML = "" + guessesList + ", ";
+    document.getElementById("remaining").innerHTML = " " + guesses;
 }
 
-// const registerHandlers = (event) => {
-    //     const start = document.querySelector("#startButton");
-    //     start.addEventListener("click", playGame);
-    // }
-
-
+    
+    
 document.addEventListener("keydown", playGame);

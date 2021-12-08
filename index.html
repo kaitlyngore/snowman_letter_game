@@ -13,28 +13,26 @@
             <h1>Snowman Letter Game</h1>
         </header>
         
-        <section class="instructions">
-            <h3>Instructions:</h3>
-            <p>The snowman has a letter, can you guess what it is under 10 tries?</p>
+        <section class="display display-instructions">
+            <h1 id="snowman">☃️</h1>
+            <div>
+                <h4>Instructions:</h4>
+                <p>The snowman has a letter, can you guess what it is under 10 tries?
+                </p>
+            </div>
             <b>Start by pressing any letter key!</b>
-            <button id="resetButton" class="btn btn--start">Reset</b>
-
         </section>
-
         <hr />
 
-        <section class="display">
+
+        <section id="game" class="display">
             <section class="display-game">
                 <p>Your guess: <span id="player-guess"></span></p>
                 <p>Already Guessed: <span id="guessed"></span> 
                 <p>Guesses remaining:<span id="remaining"></span></p>
-                <p>Wins: <span id="win-counter"></span></p>
-                <p>Losses: <span id="loss-counter"></span></p>
             </section>
-            <section class="display display-snowman">
-                <h1 id="snowman">☃️</h1>
-                <h1 id="snowman-letter">?</h1>
-                <p>Guess what letter I'm thinking of!</p>
+            <section>
+                <p id="game-status"></p>
             </section>
         </section>
                 

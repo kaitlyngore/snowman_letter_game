@@ -3,7 +3,8 @@ body {
 }
 
 #snowman {
-    font-size: 4em;
+    font-size: 7em;
+    margin:0;
 }
 
 .container {
@@ -15,26 +16,36 @@ body {
     margin: auto;
     display: grid;
     grid-template: 1fr 1fr / 1fr 1fr;
+    height: 40%;
+    width: 70%;
 }
 
-.display > p {
+#game {
+    border: 2px dotted blue;
+}
+
+b {
+    color: blue;
+}
+
+h2 {
+    font-size: 2em;
+}
+.display > b {
     grid-column: 1/3;
-    grid-row: 2;
+    height:fit-content;
 }
 
 .display >
 .display-snowman {
-    /* width: 60%; */
-    height: 60%;
-    border: 2px dotted blue;
     padding: 2em;
 }
 
-.display > h1 {
+
+/* .display > h1 {
     font-size: 4em;
-    margin: 0;
     
-}
+} */
 
 .display-game {
     text-align: left;
